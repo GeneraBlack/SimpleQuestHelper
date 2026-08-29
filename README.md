@@ -4,7 +4,7 @@
 
 ![SimpleQuestHelper Banner](public/tauri.svg)
 
-### Der moderne visuelle All-in-One Editor für Minecraft Modpacks, FTB Quests & KubeJS
+### The Modern Visual All-in-One Editor for Minecraft Modpacks, FTB Quests & KubeJS
 
 [![Build Status](https://github.com/GeneraBlack/SimpleQuestHelper/actions/workflows/build.yml/badge.svg)](https://github.com/GeneraBlack/SimpleQuestHelper/actions)
 [![Minecraft Versions](https://img.shields.io/badge/Minecraft-1.21.1%20%7C%201.26%2B%20%7C%201.20.1-brightgreen.svg)](https://github.com/GeneraBlack/SimpleQuestHelper)
@@ -12,170 +12,170 @@
 [![React 19](https://img.shields.io/badge/React-19-61dafb.svg)](https://react.dev)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-[**Download Release (.exe)**](https://github.com/GeneraBlack/SimpleQuestHelper/releases) • [**Dokumentation**](#-benutzerhandbuch--anleitung) • [**Features**](#-features) • [**Entwickler-Guide**](#-entwickler-anleitung)
+[**Download Executable (.exe)**](https://github.com/GeneraBlack/SimpleQuestHelper/releases) • [**User Manual**](#-user-manual--guide) • [**Features**](#-features) • [**Developer Guide**](#-developer-guide)
 
 </div>
 
 ---
 
-## 📖 Über SimpleQuestHelper
+## 📖 Overview
 
-**SimpleQuestHelper** ist eine hochperformante Desktop-Anwendung (entwickelt mit **Rust & React/Tauri**), die Modpack-Entwicklern das Erstellen, Bearbeiten, Visualisieren und Ausbalancieren von Minecraft-Modpacks revolutionär vereinfacht.
+**SimpleQuestHelper** is a blazing-fast desktop application (built with **Rust & React/Tauri**) designed to streamline creating, editing, visualizing, and balancing Minecraft modpacks.
 
-Nie wieder manuell fehleranfällige `.snbt`-Dateien oder Hunderte Zeilen KubeJS-JavaScript schreiben: SimpleQuestHelper synchronisiert sich direkt mit deiner Minecraft-Instanz, extrahiert Texturen und Rezepte aus über 200+ Mod-JARs und generiert sauberen, standardkonformen Code.
+Forget manually writing error-prone `.snbt` quest files or hundreds of lines of KubeJS JavaScript: SimpleQuestHelper directly hooks into your Minecraft instance, indexes textures and custom recipes across 200+ mod JARs in milliseconds, and outputs clean, standards-compliant code.
 
 ---
 
 ## ✨ Features
 
-* **🎨 Visueller Quest-Tree Editor:** Interaktiver Knoten-Graph (mit Zoom, Drag & Drop, Pfeilverbindungen) für FTB Quests.
-* **📥 1-Klick Modpack Reverse-Import:** Liest bestehende Modpacks komplett ein (Quests, Lokalisierung aus `lang/en_us.snbt`, Reward-Tables, KubeJS-Items und Rezepte).
-* **🖼️ Blitzschneller Live-Textur-Indexer ($O(1)$):** Extrahiert Item- und Block-Texturen direkt aus installierten Mod-JARs (`mods/*.jar`), KubeJS-Assets und Resourcepacks ohne UI-Lags.
-* **⚙️ Unterstützung für Mod-Crafting-Mechaniken:**
-  * **Oritech:** `oritech:pulverizer`, `oritech:foundry`, `oritech:assembler`, `oritech:atomic_forge`, `oritech:laser`, `oritech:centrifuge` etc.
-  * **AE2:** `ae2:inscriber`, `replaceInput`
+* **🎨 Visual Quest Tree Builder:** Interactive node graph (featuring zoom, pan, drag & drop, dependency curves) for FTB Quests.
+* **📥 1-Click Modpack Reverse-Importer:** Parses existing modpacks completely (chapters, task conditions, rich descriptions from `lang/en_us.snbt`, reward tables, custom KubeJS items, and recipes).
+* **🖼️ Blazing Fast Live Texture Indexer ($O(1)$):** Extracts item and block textures directly from installed mod JARs (`mods/*.jar`), KubeJS assets, and resource packs with zero UI latency.
+* **⚙️ Built-in Mod Crafting Mechanics:**
+  * **Oritech:** `oritech:pulverizer`, `oritech:foundry`, `oritech:assembler`, `oritech:atomic_forge`, `oritech:laser`, `oritech:centrifuge`, etc.
+  * **Applied Energistics 2 (AE2):** `ae2:inscriber`, `replaceInput`
   * **Draconic Evolution:** `draconicevolution:fusion_crafting`
   * **Powah:** `powah:energizing`
   * **Mystical Agriculture:** `mysticalagriculture:infusion`, `awakening`
-  * **Vanilla & Standard:** 3x3 Shaped Crafting, Shapeless, Smelting, Blasting, Smoking, Stonecutting.
-* **🛡️ Game Stages & Progression-Sperren:** Rezepte, Items und Blöcke an Fortschrittsstufen (z. B. `age_of_copper`, `age_of_space`) koppeln.
-* **🧠 Deadlock & Logic Linter:** Erkennt automatisch unerreichbare Quests, zirkuläre Abhängigkeiten (Zyklen/Deadlocks) und fehlende Rezepte.
-* **🎮 Multi-Version Syntax Generator:** Schreibt wahlweise optimierten Code für:
+  * **Standard Crafting:** 3x3 Shaped Crafting, Shapeless, Smelting, Blasting, Smoking, Stonecutting.
+* **🛡️ Game Stages & Progression Locks:** Gate recipes, items, and blocks behind progression stages (e.g., `age_of_copper`, `age_of_space`).
+* **🧠 Deadlock & Logic Linter:** Automatically scans your modpack for unreachable quests, circular dependencies (deadlocks/cycles), and missing recipe ingredients.
+* **🎮 Multi-Version Syntax Generator:** Generates code tailored specifically for your target Minecraft version:
   * `Minecraft 1.21.1` *(KubeJS 21 / NeoForge / `#c:` Common Tags)*
-  * `Minecraft 1.26+` *(KubeJS 26 / Strikte Namespaces / Data Components)*
+  * `Minecraft 1.26+` *(KubeJS 26 / Strict Namespaces / Data Components)*
   * `Minecraft 1.20.1` *(Legacy Forge / KubeJS 6 / `#forge:` Tags)*
-* **🔄 Live Auto-Sync & Ingame-Reload:** Änderungen werden in Echtzeit in deine Minecraft-Instanz übertragen – ein `/reload` im Spiel genügt!
-* **🪵 System-Logging & Debug-Konsole:** Echtzeit-Log-Stream (`simplequesthelper.log`) mit In-App Viewer (`🐛 System Logs`) und separater Terminal-Konsole.
+* **🔄 Live Auto-Sync & Ingame Reload:** Syncs changes in real-time to your Minecraft instance—a simple `/reload` ingame applies all changes immediately!
+* **🪵 System Logging & Debug Console:** Persistent logging (`simplequesthelper.log`) with an in-app viewer (`🐛 System Logs`) and a live terminal console.
 
 ---
 
-## 🚀 Schnelleinstieg
+## 🚀 Quick Start
 
-### Für Endnutzer (Windows)
+### For End Users (Windows)
 
-1. Lade die neueste `SimpleQuestHelper.exe` von den [GitHub Releases](https://github.com/GeneraBlack/SimpleQuestHelper/releases) herunter.
-2. Starte die Anwendung.
-3. Wähle im Tab **Export & Sync** den Ordner deiner Minecraft-Instanz (z. B. CurseForge / Prism Launcher / Modrinth).
-4. Klicke auf **"📥 Import Modpack into Editor"** oder beginne direkt mit dem Erstellen eigener Quests und Rezepte!
-
----
-
-## 📚 Benutzerhandbuch & Anleitung
-
-### 1. Modpack-Instanz verknüpfen
-1. Wechsle in den Tab **Export**.
-2. Klicke auf **"Select Folder"** und wähle das Hauptverzeichnis deiner Minecraft-Instanz (z. B. `.../Instances/MyModpack/`).
-3. Die App erkennt automatisch die **Minecraft-Version (z. B. 1.21.1)**, den **Modloader (NeoForge/Forge)** und alle **installierten Mods**.
+1. Download the latest `SimpleQuestHelper.exe` from the [GitHub Releases](https://github.com/GeneraBlack/SimpleQuestHelper/releases) or the [Actions Artifacts](https://github.com/GeneraBlack/SimpleQuestHelper/actions).
+2. Launch the application.
+3. In the **Export & Sync** tab, select your Minecraft instance directory (e.g., CurseForge / Prism Launcher / Modrinth).
+4. Click **"📥 Import Modpack into Editor"** or start creating new quests and recipes from scratch!
 
 ---
 
-### 2. Bestehendes Modpack importieren
-Wenn du ein bestehendes Modpack bearbeiten möchtest:
-1. Klicke im Tab **Export** auf **"📥 Import Modpack into Editor"**.
-2. SimpleQuestHelper liest automatisch ein:
-   * Alle Quest-Kapitel & Aufgaben aus `config/ftbquests/quests/chapters/`
-   * Titel & formatierte Beschreibungen aus `config/ftbquests/quests/lang/en_us.snbt`
-   * Belohnungstabellen & Loot-Crates aus `config/ftbquests/quests/reward_tables/`
-   * Eigene KubeJS Items & Blöcke aus `kubejs/startup_scripts/`
-   * Alle Handwerks- und Mod-Rezepte aus `kubejs/server_scripts/`
+## 📚 User Manual & Guide
+
+### 1. Linking your Minecraft Modpack Instance
+1. Switch to the **Export** tab.
+2. Click **"Select Folder"** and choose your Minecraft instance root directory (e.g., `.../Instances/MyModpack/`).
+3. SimpleQuestHelper automatically identifies your **Minecraft Version (e.g., 1.21.1)**, **Modloader (NeoForge/Forge)**, and all **installed mods**.
 
 ---
 
-### 3. Visueller Quest-Tree Editor (`Quest Tree`)
-* **Kapitel-Auswahl:** Wechsle zwischen Kapiteln über das Dropdown oben links oder erstelle neue Kapitel.
-* **Quest hinzufügen:** Klicke auf **"+ Add Quest"** – es wird ein neuer Knoten im Graph platziert.
-* **Abhängigkeiten verbinden:** Ziehe mit der Maus eine Verbindung von einem grünen Punkt (Source) zum Ziel-Knoten (Target). SimpleQuestHelper zeichnet saubere Verbindungspfeile.
-* **Quest bearbeiten:** Klicke auf einen Quest-Knoten, um in der rechten Seitenleiste:
-  * Titel, Untertitel und mehrzeilige Beschreibung anzupassen.
-  * **Tasks (Bedingungen):** Items oder Checkmarks hinzufügen.
-  * **Rewards (Belohnungen):** Items, Game-Stage-Freischaltungen oder Reward-Table-Zuweisungen zu vergeben.
+### 2. Reverse-Importing an Existing Modpack
+To edit an existing modpack:
+1. Click **"📥 Import Modpack into Editor"** in the **Export** tab.
+2. SimpleQuestHelper automatically parses:
+   * All quest chapters and tasks from `config/ftbquests/quests/chapters/`
+   * Titles and formatted descriptions from `config/ftbquests/quests/lang/en_us.snbt`
+   * Reward tables and loot crates from `config/ftbquests/quests/reward_tables/`
+   * Custom KubeJS items and blocks from `kubejs/startup_scripts/`
+   * All custom recipes from `kubejs/server_scripts/`
 
 ---
 
-### 4. Rezepte & Handwerksmechaniken (`Recipes`)
-* **3x3 Shaped Crafting:** Klicke auf die 9 Slots des interaktiven Handwerksgitters, um Gegenstände grafisch zu platzieren.
-* **Mod-Maschinen:** Wähle aus über 20+ Mechaniken (z. B. `oritech:pulverizer`, `draconicevolution:fusion_crafting`, `powah:energizing`).
-* **Recipe Blacklist (Entfernungen):** Deaktiviere unerwünschte Vanilla- oder Mod-Rezepte nach Item-Output, Mod-ID oder Rezept-Typ.
+### 3. Visual Quest Tree Editor (`Quest Tree`)
+* **Chapter Navigation:** Switch between chapters via the dropdown or create new chapters.
+* **Add Quest:** Click **"+ Add Quest"** to place a new node on the canvas.
+* **Connect Dependencies:** Drag a connection line from a green source handle to a target quest node. SimpleQuestHelper automatically computes clean dependency arrows.
+* **Edit Quest Properties:** Select any node to customize:
+  * Title, subtitle, and multi-line formatted description.
+  * **Tasks (Conditions):** Item detection or checkmarks.
+  * **Rewards:** Items, Game Stage unlocks, or Reward Table crates.
 
 ---
 
-### 5. Custom Items & Blöcke (`Items & Blocks`)
-* Erstelle eigene Items und Blöcke für KubeJS.
-* Weise Texturen zu und hinterlege Tooltips.
-* SimpleQuestHelper generiert automatisch:
+### 4. Recipes & Custom Machine Mechanics (`Recipes`)
+* **3x3 Shaped Crafting Grid:** Click slots to assign ingredients visually.
+* **Mod Machine Crafting:** Select from 20+ specialized mechanics (e.g., `oritech:pulverizer`, `draconicevolution:fusion_crafting`, `powah:energizing`).
+* **Recipe Blacklist (Removals):** Remove unwanted vanilla or mod recipes by output item, mod ID, or recipe type.
+
+---
+
+### 5. Custom Items & Blocks (`Items & Blocks`)
+* Create new custom items and blocks for KubeJS.
+* Assign textures and custom tooltips.
+* SimpleQuestHelper generates:
   * `kubejs/startup_scripts/sqh_items.js`
-  * `kubejs/assets/kubejs/lang/en_us.json` (automatische Lokalisierung)
+  * `kubejs/assets/kubejs/lang/en_us.json` (auto-localization)
   * `kubejs/client_scripts/sqh_tooltips.js`
 
 ---
 
-### 6. Logic Linter (Logik-Prüfung)
-* Klicke in der Seitenleiste auf **"🧠 Check Logic"**.
-* Der Linter analysiert dein gesamtes Modpack auf:
-  * ❌ Zirkuläre Abhängigkeiten (Quest A verlangt Quest B, welche Quest A verlangt $\rightarrow$ Deadlock)
-  * ⚠️ Quests ohne Aufgaben oder Belohnungen
-  * ⚠️ Rezepte ohne Eingabe- oder Ausgabestücke
+### 6. Progression Logic Linter
+* Click **"🧠 Check Logic"** in the sidebar.
+* The Linter checks your entire modpack for:
+  * ❌ Circular dependencies (Quest A requires Quest B, which requires Quest A $\rightarrow$ Deadlock)
+  * ⚠️ Quests without tasks or rewards
+  * ⚠️ Recipes missing inputs or outputs
 
 ---
 
-### 7. Export & Live Auto-Sync
-* **Generate & Export:** Schreibt alle Dateien sauber formatiert in deine Minecraft-Instanz.
-* **Setup Auto-Sync:** Richtet einen automatischen Datei-Watcher ein. Bei Änderungen in SimpleQuestHelper reicht ein einfaches `/reload` im Minecraft-Chat, um alle Quests und Rezepte ohne Neustart des Spiels zu aktualisieren.
+### 7. Export & Real-Time Auto-Sync
+* **Generate & Export:** Writes formatted files directly into your Minecraft instance.
+* **Setup Auto-Sync:** Starts a background folder watcher. When you make changes in SimpleQuestHelper, running `/reload` ingame updates your quests and recipes without restarting Minecraft.
 
 ---
 
 ### 8. Logging & Debugging (`🐛 System Logs`)
-* Klicke auf **`🐛 System Logs`** in der Seitenleiste, um den Live-Logstream einzusehen.
-* Alle Logs werden persistent in **`simplequesthelper.log`** gespeichert.
-* Zum Debuggen während der Entwicklung kann die App mit **`start_debug.bat`** in einer sichtbaren Konsole ausgeführt werden.
+* Click **`🐛 System Logs`** in the sidebar to open the live log inspector.
+* All events are recorded in **`simplequesthelper.log`**.
+* Run **`start_debug.bat`** to start the app with a visible terminal console for development.
 
 ---
 
-## 🕹️ Minecraft Versions-Kompatibilität
+## 🕹️ Minecraft Version Compatibility
 
 | Feature | Minecraft 1.21.1 (NeoForge) | Minecraft 1.26+ (Modern) | Minecraft 1.20.1 (Forge) |
 | :--- | :---: | :---: | :---: |
 | **KubeJS Version** | KubeJS 21 | KubeJS 26 | KubeJS 6 |
-| **Tag-Standard** | `#c:ingots/...` | `#c:ingots/...` | `#forge:ingots/...` |
+| **Tag Standard** | `#c:ingots/...` | `#c:ingots/...` | `#forge:ingots/...` |
 | **Data Structure** | Data Components | Strict Data Components | Classic NBT |
 | **FTB Quests Filter** | `ftbfiltersystem:smart_filter` | `ftbfiltersystem:smart_filter` | Item Tags |
 | **Registry Syntax** | `StartupEvents.registry('item')` | `StartupEvents.registry('minecraft:item')` | `StartupEvents.registry('item')` |
 
 ---
 
-## 💻 Entwickler-Anleitung
+## 💻 Developer Guide
 
-### Voraussetzungen
-* [Node.js](https://nodejs.org/) (Version 18 oder neuer)
-* [Rust & Cargo](https://rustup.rs/) (Stable Toolchain)
-* C++ Build Tools (z. B. Visual Studio Build Tools auf Windows)
+### Prerequisites
+* [Node.js](https://nodejs.org/) (v18+)
+* [Rust & Cargo](https://rustup.rs/) (Stable toolchain)
+* C++ Build Tools (e.g. Visual Studio Build Tools on Windows)
 
-### Installation & Lokale Ausführung
+### Local Development Setup
 
 ```bash
-# 1. Repository klonen
+# 1. Clone repository
 git clone https://github.com/GeneraBlack/SimpleQuestHelper.git
 cd SimpleQuestHelper
 
-# 2. Frontend-Abhängigkeiten installieren
+# 2. Install frontend dependencies
 npm install
 
-# 3. Desktop-App im Entwicklungsmodus starten
+# 3. Start Tauri Desktop in dev mode
 npm run tauri dev
 ```
 
-### Produktions-Build erstellen (.exe)
+### Production Build (.exe)
 
 ```bash
-# Baut die optimierte Standalone-Anwendung
+# Build production bundle
 npm run build
 npx tauri build --no-bundle
 ```
-Die erzeugte `.exe` liegt anschließend unter:
+The compiled `.exe` binary will be located at:
 `src-tauri/target/release/tauri-app.exe`
 
 ---
 
-## 📄 Lizenz
+## 📄 License
 
-Dieses Projekt ist unter der **MIT-Lizenz** lizenziert – siehe die [LICENSE](LICENSE)-Datei für Details.
+This project is licensed under the **MIT License** – see the [LICENSE](LICENSE) file for details.
